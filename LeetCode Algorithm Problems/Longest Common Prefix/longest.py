@@ -1,4 +1,3 @@
-
 def longestCommonPrefix(strs):
     if (len(strs) == 1):
         return strs[0]
@@ -13,13 +12,11 @@ def longestCommonPrefix(strs):
             return lcp
         else:
             lcp = temp
-        print("index: " + str(index) + " | lcp: " + str(lcp))
+        #print("index: " + str(index) + " | lcp: " + str(lcp))
         index +=1
     return lcp
     
 
-def main():
-    strs = ["dog","racecar","car"]
-    print(longestCommonPrefix(strs))
 
-main()
+strs = ["flower", "florist", "flight"]
+print(longestCommonPrefix(strs))
