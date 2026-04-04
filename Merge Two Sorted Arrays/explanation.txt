@@ -1,0 +1,18 @@
+I need to solve this in O(n + m). 
+
+To do this, I am going to pass over each array once using two pointers
+
+The trick here is to walk nums1 backwards. 
+
+Here is the algorithm:
+1. Create two pointers i and j that point store the values of m-1 and n-1 respectively as well as have a pointer storing the 
+    index of m+n-1
+2. Create a while loop that checks if j >= 0. We will stop the loop when we have inserted the first element, which will be 
+    the last element needing merging.
+3. In the while loop, check if i>= 0 to ensure we do not check beyond the first element of nums1. Also check if the value at
+    nums1[i], which is the largest value in nums1 by default, is greater than nums2[j], which contains the largest value of
+    nums2.
+4. Depending on the conditional, replace the nums1[k] element with whatever value is greater from nums1 or nums2 and decrease
+    i or j accordingly (if nums1 larger, decrease i and vice versa)
+5. The loop will continue until i reaches -1, which could cause j to reach -1 or j will get there first depending on which array 
+    has the smallest element, at which point the loop will end.
