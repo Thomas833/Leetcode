@@ -1,3 +1,3 @@
 This problem usese the [Boyer-Moore](https://www.geeksforgeeks.org/theory-of-computation/boyer-moore-majority-voting-algorithm/) voting algorithm to find the majority element.
 
-It's pretty simple. Start a count at 0. If count = 0, set answer = nums[i]. If the count is greater than 0, check if nums[i] is equal to the answer, and if so, count ++, else count--. The majority number will always be the answer. 
+It's pretty simple. Start a count at 0. If count = 0, set answer = nums[i]. If the count is greater than 0, check if nums[i] is equal to the answer, and if so, count ++, else count--. The majority number will always be the answer. The key here is the definition of "majority". Majority is only true when [n/2] (floor division) < count. So in the array [1,2,3,4,5,6,7,1,1], 1 will not be the majority since 3 !> ( [9/2] -> 4)
