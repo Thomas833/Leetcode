@@ -1,0 +1,3 @@
+This problem usese the [Boyer-Moore](https://www.geeksforgeeks.org/theory-of-computation/boyer-moore-majority-voting-algorithm/) voting algorithm to find the majority element.
+
+It's pretty simple. Start a count at 0. If count = 0, set answer = nums[i]. If the count is greater than 0, check if nums[i] is equal to the answer, and if so, count ++, else count--. The majority number will always be the answer. 
