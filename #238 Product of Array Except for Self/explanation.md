@@ -1,0 +1,1 @@
+use prefix and suffix summations. look at solution online for more in depth explanation
