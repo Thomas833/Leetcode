@@ -1,0 +1,1 @@
+simply made a hashmap to map the characters to the respective values and made a loop walking through it and had a condition about the current number being less than the next number
