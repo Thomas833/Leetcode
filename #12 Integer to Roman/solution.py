@@ -16,9 +16,17 @@ def intToRoman(num: int) -> str:
         mod = 10**(numLen-1)
         suffixNum = num % mod
         romanNum = num - suffixNum
-        romanStr += hashmap[romanNum]
+        reducedNum = int((num - suffixNum) / mod)
+        if reducedNum == 4 or reducedNum == 9:
+            romanStr += hashmap[mod] + hashmap[romanNum+(romanNum/reducedNum)]
+        elif reducedNum < 4 and reducedNum != 0:
+            romanStr += reducedNum*(hashmap[romanNum/reducedNum])
+        elif reducedNum > 4:
+            diff = reducedNum - 5
+            romanStr += hashmap[5*mod] + diff*(hashmap[romanNum/reducedNum])
+        num = suffixNum
+    return romanStr
 
-        
-        
-
-print(intToRoman(2345))
+num = 1994 
+print(intToRoman(num))
+print("MCMXCIV")
