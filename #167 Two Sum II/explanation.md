@@ -1,0 +1,1 @@
+i am going to use two pointers to walk from each end of the array and if the target is less than what the current sum is, i will move the right pointer to the left and if the target is bigger, i will move the left pointer to the right until i find my solution.
