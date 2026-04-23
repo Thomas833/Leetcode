@@ -1,0 +1,3 @@
+the area's algorithm is this (j-i)*min(h(i),h(j))
+
+i will have two pointers at either end of the array. we will move inward according to which pillar, h(i) or h(j) is smaller. we will have a variable keeping track of the max area. move the pointers inward until they are equal. because you only move the smaller pillar, you will at some point come across the largest container, whose area will be captured by max area. 
