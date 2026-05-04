@@ -13,6 +13,20 @@ if [[ -z "$raw_name" ]]; then
 fi
 
 # -----------------------------
+# Difficulty input
+# -----------------------------
+while true; do
+  read -p "Enter difficulty (EASY/MEDIUM/HARD): " difficulty
+  difficulty=$(echo "$difficulty" | tr '[:lower:]' '[:upper:]')
+
+  if [[ "$difficulty" == "EASY" || "$difficulty" == "MEDIUM" || "$difficulty" == "HARD" ]]; then
+    break
+  else
+    echo "Invalid input. Please enter EASY, MEDIUM, or HARD."
+  fi
+done
+
+# -----------------------------
 # Branch name (cleaned version)
 # -----------------------------
 branch_name=$(echo "$raw_name" \
@@ -28,6 +42,7 @@ folder_name="$raw_name"
 
 echo "Branch: $branch_name"
 echo "Folder: $folder_name"
+echo "Difficulty: $difficulty"
 
 # -----------------------------
 # Create branch
@@ -52,6 +67,8 @@ EOF
 # instructions.txt
 # -----------------------------
 cat <<EOF > "$folder_name/instructions.txt"
+DIFFICULTY: $difficulty
+
 Problem instructions go here.
 EOF
 
@@ -70,3 +87,4 @@ EOF
 echo "Setup complete."
 echo "Branch: $branch_name"
 echo "Folder: $folder_name"
+echo "Difficulty: $difficulty"
