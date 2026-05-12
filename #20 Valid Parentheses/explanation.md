@@ -1,0 +1,3 @@
+# #20 Valid Parentheses - Explanation
+
+use a stack to track the which open parenthesis you are trying to close. use a map to determine which parenthesis you are looking for. add to stack if open parenthesis. if closed, check against top of stack and see if the open parenthesis matches your closing parenthesis type. also make sure that the stack is empty after the loop in case any remaining open parentheses remain and return false if so.
