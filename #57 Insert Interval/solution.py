@@ -1,25 +1,24 @@
 def solution(intervals: list[list[int]], newInterval: list[int])->list[list[int]]:
     output = []
-    status = "pre"
-    curInt = newInterval
 
-    if len(intervals) == 0:
-        return [newInterval]
-    if newInterval[0] > intervals[-1][1]: # larger than intervals
-        output.append(intervals)
-        output.append(newInterval)
-        return output
-    if newInterval[0] < intervals[0][0] and newInterval[1] < intervals[0][1]: # smaller than intervals
-        output.append(newInterval)
-        output.append(intervals)
-        return output
+    for interval in intervals: # merging or in middle
+        #current interval entirely before newInterval
+        if interval[1] < newInterval[0]:
+            output.append(interval)
 
-    for i in range(len(intervals)): # merging or in middle
-        if newInterval[1] < intervals[i][0]:
+        #newInterval completely after interval
+        elif interval[0] > newInterval[1]:
+            output.append(newInterval)
+            newInterval = interval    
 
+        #overlap
+        else:
+            newInterval[0] = min(interval[0], newInterval[0])
+            newInterval[1] = max(interval[1], newInterval[1])
+    output.append(newInterval)
     return output
 
 
-intervals = [[1,5]]
-newInterval = [0,3]
+intervals = [[1,2],[3,5],[6,7],[8,10],[12,16]]
+newInterval = [4,8]
 print(solution(intervals, newInterval))
