@@ -1,0 +1,11 @@
+
+
+to check if insertion or removal are an available option, check if the difference in lengths between
+the strings is no more than 1. 
+
+pale, ple -> true
+pales, pale -> true
+pale, bale -> true
+pale, bake -> false
+
+need to account for missing letter, additional letter, or replaced letter
