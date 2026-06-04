@@ -1,0 +1,3 @@
+DIFFICULTY: EASY
+
+Problem instructions go here.
