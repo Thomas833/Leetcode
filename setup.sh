@@ -57,7 +57,7 @@ mkdir -p "$folder_name"
 # -----------------------------
 # explanation.md
 # -----------------------------
-cat <<EOF > "$folder_name/explanation.md"
+cat <<EOF > "$folder_name/explanation.txt"
 # $raw_name - Explanation
 
 Write your explanation here.

@@ -1,0 +1,12 @@
+# #105 Construct Binary Tree from Preorder and Inorder Traversal - Explanation
+      3
+
+preorder = [9,20,15,7], inorder = [9,3,15,20,7]
+
+1st loop
+store elements from inorder in a map with the node as the key and the index as the value
+
+2nd loop
+popleft from the preorder list. this will be the root node. next, recursively call the method with the node as inorder
+
+https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/solutions/6744135/video-2-solutions-with-on2-and-on-time-b-xdpe/?envType=study-plan-v2&envId=top-interview-150
