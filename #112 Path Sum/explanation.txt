@@ -1,0 +1,59 @@
+# #112 Path Sum - Explanation
+
+The most intuitive searching algorithm is DFS. If we used BFS, we would be storing sums for each level,
+and the queue would explode in size if the tree width at lower depths got larger 
+
+Claude explanation:
+problem. Visualize it. no code.
+8:25 PM
+Analyzed memory consumption disparities between traversal algorithms and devised visualization
+
+Memory Usage Comparison:
+
+Tree:
+        A
+       / \
+      B   C
+     / \   \
+    D   E   F
+
+DFS (Recursive):
+- Only ONE path stored at a time in the call stack
+- A → B → D (stack has 3 frames)
+- Backtracks, A → B → E (still 3 frames)
+- Backtracks, A → C → F (still 3 frames)
+- Max stack size = tree HEIGHT (3 in this case)
+
+BFS (Queue):
+- ALL nodes at current level stored in queue
+- Level 1: queue holds [A]
+- Level 2: queue holds [B, C] (2 nodes)
+- Level 3: queue holds [D, E, F] (3 nodes)
+- Max queue size = tree WIDTH (widest level)
+
+Why DFS wins for your problem:
+
+    You only care about one path at a time (root to leaf)
+    DFS naturally explores one complete path, checks the sum, then backtracks
+    You never need to store multiple paths simultaneously
+    BFS wastes space storing sum info for all siblings even though you only need one path
+
+For a wide tree (many children per node), BFS's queue explodes. DFS's stack stays proportional to depth, which is much smaller.
+
+
+
+ALGORITHM:
+
+Simply use a DFS search algorithm to go from the root down each root-to-leaf path. Upon reaching leaf node, left and right None, 
+check if total equals sum. return result. in recursive calls, ensure node child exists. if not, return False
+
+This algorithm performs in O(n) with O(n) space for the recursive call stack
+
+
+MORE EFFICIENT LEETCODE ALGORITHM:
+
+Similar, but less checks. 
+
+If node is None, return False.
+If node not leaf node, make recursive call with left and right child and deduct node value from sum
+if node is leaf node, compare node value to sum. if equal, return true, else false
